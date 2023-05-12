@@ -36,8 +36,7 @@
 
     <section id="page-header" class="about-header">
 
-        <h2>#cart</h2>
-        <p>Add your coupon code & SAVE upto 70%!</p>
+        <h2>Таны сагс</h2>
 
     </section>
 
@@ -116,20 +115,18 @@
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
-            <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
-            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <h4>Холбоо барих</h4>
+            <p><strong>Address:</strong> УБ, ХУД, 4-р хороо, Наадамчдын зам гудамж, Төгөлдөр апартмент</p>
+            <p><strong>Phone:</strong> +976()80813342</p>
+            <p><strong>Hours:</strong> 09:00 - 23:00, Даваа - Ням</p>
             <div class="follow">
                 <h4>Follow Us</h4>
-                <div class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-pinterest-p"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
-            </div>
+                <ul class="social-icons">
+                  <li><a href="https://www.facebook.com/profile.php?id=100091299083683"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.instagram.com/lavenderonline.ub/?next=%2F"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="https://twitter.com/your_username"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
         </div>
         <div class="col">
             <h4>About</h4>
@@ -159,9 +156,43 @@
         </div>
 
         <div class="copyright">
-            <p>© 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
+            <p>© 2023, Конформ ХХК </p>
         </div>
     </footer>
+
+
+    <script src="script.js"></script>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "100197399716344");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v16.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
     <script src="script.js"></script>
