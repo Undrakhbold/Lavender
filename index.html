@@ -15,7 +15,7 @@
 
     <section id="header">
         <a href="#"><img src="img/logo.png" class="logo" alt="" style="width: 30px; height: auto;"></a>
-
+    
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
@@ -23,68 +23,88 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                
-                <a href="#" id="close"><i class="far fa-times"></i></a>
+                <li><a href="#" id="cart-link"><i class="bx bx-shopping-bag" id="cart-icon"></i></a></li>
             </ul>
         </div>
-        <div id="mobile">
-            <i id="bar" class="fas fa-outdent"></i>
+    
+        <!-- Cart -->
+        <div class="cart">
+            <div class="cart-header">
+                <h2 class="cart-title">Your Cart</h2>
+                <a href="#" id="close-cart"><i class="far fa-times"></i></a>
+            </div>
+            <!-- Content -->
+            <div class="cart-content"></div>
+            <!-- Total -->
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">$0</div>
+            </div>
+            <!-- Buy Button -->
+            <button type="button" class="btn-buy">Buy Now</button>
         </div>
+    </div>
     
-        <script>
-            var mobileMenuVisible = false;
-            var mobileMenu = document.getElementById("navbar");
-            var mobileIcon = document.getElementById("bar");
     
-            // Toggle mobile menu visibility
-            function toggleMobileMenu() {
-                if (mobileMenuVisible) {
-                    mobileMenu.style.display = "none";
-                    mobileIcon.classList.remove("active");
-                    mobileMenuVisible = false;
-                } else {
-                    mobileMenu.style.display = "block";
-                    mobileIcon.classList.add("active");
-                    mobileMenuVisible = true;
-                }
+    <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+    
+    <script>
+        var mobileMenuVisible = false;
+        var mobileMenu = document.getElementById("navbar");
+        var mobileIcon = document.getElementById("bar");
+    
+        // Toggle mobile menu visibility
+        function toggleMobileMenu() {
+            if (mobileMenuVisible) {
+                mobileMenu.style.display = "none";
+                mobileIcon.classList.remove("active");
+                mobileMenuVisible = false;
+            } else {
+                mobileMenu.style.display = "block";
+                mobileIcon.classList.add("active");
+                mobileMenuVisible = true;
             }
+        }
     
-            // Handle clicks outside the navbar menu
-            document.addEventListener("click", function (event) {
-                var target = event.target;
-                var isMobileMenuClicked = mobileMenu.contains(target);
-                var isMobileIconClicked = mobileIcon.contains(target);
+        // Handle clicks outside the navbar menu
+        document.addEventListener("click", function (event) {
+            var target = event.target;
+            var isMobileMenuClicked = mobileMenu.contains(target);
+            var isMobileIconClicked = mobileIcon.contains(target);
     
-                if (window.matchMedia("(max-width: 767px)").matches && !isMobileMenuClicked && !isMobileIconClicked && mobileMenuVisible) {
-                    toggleMobileMenu();
-                }
-            });
-    
-            // Toggle mobile menu when mobile icon is clicked
-            mobileIcon.addEventListener("click", function () {
+            if (window.matchMedia("(max-width: 767px)").matches && !isMobileMenuClicked && !isMobileIconClicked && mobileMenuVisible) {
                 toggleMobileMenu();
-            });
-        </script>
+            }
+        });
     
-        <style>
-            /* Hide navbar in mobile version by default */
+        // Toggle mobile menu when mobile icon is clicked
+        mobileIcon.addEventListener("click", function () {
+            toggleMobileMenu();
+        });
+    </script>
+    
+    <style>
+        /* Hide navbar in mobile version by default */
+        #navbar {
+            display: none;
+        }
+    
+        /* Add styles for active mobile icon */
+        #bar.active {
+            color: red;
+        }
+    
+        /* Show navbar in desktop version */
+        @media screen and (min-width: 768px) {
             #navbar {
-                display: none;
+                display: flex !important;
             }
-    
-            /* Add styles for active mobile icon */
-            #bar.active {
-                color: red;
-            }
-    
-            /* Show navbar in desktop version */
-            @media screen and (min-width: 768px) {
-                #navbar {
-                    display: flex !important;
-                }
-            }
-        </style>
+        }
+    </style>
     </section>
+    
 
     <section id="hero">
         <h2>Хамгийн хямд</h2>
