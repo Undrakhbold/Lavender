@@ -75,9 +75,20 @@ function addCartClicked(event) {
   var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
   var price = shopProducts.getElementsByClassName("price")[0].innerText;
   var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
+  price = addThousandSeparator(price); // Add thousand separator to the price
   addProductToCart(title, price, productImg);
   updatetotal();
 }
+
+// Function to add a thousand separator to the price
+function addThousandSeparator(price) {
+  var parts = price.split('.');
+  var integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  var decimalPart = parts[1] ? '.' + parts[1] : '';
+  return integerPart + decimalPart;
+}
+
+
 function addProductToCart(title, price, productImg) {
   var cartShopBox = document.createElement("div");
   cartShopBox.classList.add("cart-box");
@@ -117,12 +128,17 @@ function updatetotal() {
     var cartBox = cartBoxes[i];
     var priceElement = cartBox.getElementsByClassName("cart-price")[0];
     var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var price = parseFloat(priceElement.innerText.replace(/₮/g, "").replace(/,/g, ""));
     var quantity = quantityElement.value;
     total = total + price * quantity;
+    priceElement.innerText = addThousandSeparator(priceElement.innerText); // Add thousand separator to individual product prices
   }
-  // If price Contain some Cents Value
+
+  // Round the total to two decimal places
   total = Math.round(total * 100) / 100;
 
-  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
+  // Add thousand separator to the total
+  var formattedTotal = addThousandSeparator(total.toString());
+
+  document.getElementsByClassName("total-price")[0].innerText = formattedTotal + "₮";
 }
