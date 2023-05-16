@@ -30,8 +30,6 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="#" id="cart-link"><i class="bx bx-shopping-bag" id="cart-icon"></i></a></li>
-                <!-- Close Button -->
-                <li><a href="#" id="close-mobile"><i class="fas fa-times"></i></a></li>
             </ul>
             <!-- Cart -->
             <div class="cart">
@@ -53,7 +51,7 @@
     
         <div id="mobile">
             <i id="bar" class="fas fa-outdent"></i>
-            <!-- Close Button -->
+            <!-- Close Button (Mobile only) -->
             <a href="#" id="close-mobile"><i class="fas fa-times"></i></a>
         </div>
     
@@ -72,7 +70,17 @@
                 }
             });
         </script>
+    
+        <style>
+            /* Hide close button in desktop version */
+            @media screen and (min-width: 768px) {
+                #close-mobile {
+                    display: none;
+                }
+            }
+        </style>
     </section>
+    
     
     
     
