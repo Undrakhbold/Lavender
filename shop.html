@@ -61,14 +61,19 @@
             document.getElementById("close-mobile").addEventListener("click", function(event) {
                 event.preventDefault();
                 var navbar = document.getElementById("navbar");
+                var cart = document.getElementsByClassName("cart")[0];
+                
                 if (navbar.style.display === "none") {
-                    navbar.style.display = "block";
+                    navbar.style.display = "flex";
+                    cart.style.display = "block";
                 } else {
                     navbar.style.display = "none";
+                    cart.style.display = "none";
                 }
             });
         </script>
     </section>
+    
     
     
     
