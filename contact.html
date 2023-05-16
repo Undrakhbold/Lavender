@@ -123,16 +123,19 @@
         </div>
     </section>
 
+
     <section id="form-details">
-        <form action="">
-            <span>Бид таны захиалгыг хүлээн авмагцаа тантай эргэн холбогдох болно</span>
-            <h2>Бараа захиалах </h2>
-            <input type="text" name="" id="" placeholder="Таны нэр">
-            <input type="text" name="" id="" placeholder="Таны мэйл">
-            <input type="text" name="" id="" placeholder="Таны утасны дугаар">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Захиалах бараа"></textarea>
-            <button class="normal">Submit</button>
-        </form>
+    <form action="https://formspree.io/f/mlekvpke" method="POST" class="contact__form">
+        <span>Бид таны захиалгыг хүлээн авмагцаа тантай эргэн холбогдох болно</span>
+        <h2>Бараа захиалах </h2>
+        <div class="form__name">
+            <input type="text" name="Таны нэр" placeholder="Таны нэр" required>
+            <input type="number" name="Таны утасны дугаар" placeholder="Таны утасны дугаар" required>
+        </div>
+        <input type="email" name="Таны мэйл" placeholder="Таны мэйл" required>
+        <textarea name="Захиалах бараа"  rows="7" placeholder="Захиалах бараа" required></textarea>
+        <button class="normal">Захиалга илгээх</button>
+    </form>
 
         <div class="people">
             <div>
