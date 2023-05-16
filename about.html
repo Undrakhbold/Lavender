@@ -50,6 +50,60 @@
         <div id="mobile">
             <i id="bar" class="fas fa-outdent"></i>
         </div>
+    
+        <script>
+            var mobileMenuVisible = false;
+            var mobileMenu = document.getElementById("navbar");
+            var mobileIcon = document.getElementById("bar");
+    
+            // Toggle mobile menu visibility
+            function toggleMobileMenu() {
+                if (mobileMenuVisible) {
+                    mobileMenu.style.display = "none";
+                    mobileIcon.classList.remove("active");
+                    mobileMenuVisible = false;
+                } else {
+                    mobileMenu.style.display = "block";
+                    mobileIcon.classList.add("active");
+                    mobileMenuVisible = true;
+                }
+            }
+    
+            // Handle clicks outside the navbar menu
+            document.addEventListener("click", function (event) {
+                var target = event.target;
+                var isMobileMenuClicked = mobileMenu.contains(target);
+                var isMobileIconClicked = mobileIcon.contains(target);
+    
+                if (window.matchMedia("(max-width: 767px)").matches && !isMobileMenuClicked && !isMobileIconClicked && mobileMenuVisible) {
+                    toggleMobileMenu();
+                }
+            });
+    
+            // Toggle mobile menu when mobile icon is clicked
+            mobileIcon.addEventListener("click", function () {
+                toggleMobileMenu();
+            });
+        </script>
+    
+        <style>
+            /* Hide navbar in mobile version by default */
+            #navbar {
+                display: none;
+            }
+    
+            /* Add styles for active mobile icon */
+            #bar.active {
+                color: red;
+            }
+    
+            /* Show navbar in desktop version */
+            @media screen and (min-width: 768px) {
+                #navbar {
+                    display: flex !important;
+                }
+            }
+        </style>
     </section>
 
     <section id="page-header" class="about-header">
