@@ -51,35 +51,64 @@
     
         <div id="mobile">
             <i id="bar" class="fas fa-outdent"></i>
-            <!-- Close Button (Mobile only) -->
-            <a href="#" id="close-mobile"><i class="fas fa-times"></i></a>
         </div>
     
         <script>
-            document.getElementById("close-mobile").addEventListener("click", function(event) {
-                event.preventDefault();
-                var navbar = document.getElementById("navbar");
-                var cart = document.getElementsByClassName("cart")[0];
-                
-                if (navbar.style.display === "none") {
-                    navbar.style.display = "flex";
-                    cart.style.display = "block";
+            var mobileMenuVisible = false;
+            var mobileMenu = document.getElementById("navbar");
+            var mobileIcon = document.getElementById("bar");
+    
+            // Toggle mobile menu visibility
+            function toggleMobileMenu() {
+                if (mobileMenuVisible) {
+                    mobileMenu.style.display = "none";
+                    mobileIcon.classList.remove("active");
+                    mobileMenuVisible = false;
                 } else {
-                    navbar.style.display = "none";
-                    cart.style.display = "none";
+                    mobileMenu.style.display = "block";
+                    mobileIcon.classList.add("active");
+                    mobileMenuVisible = true;
                 }
+            }
+    
+            // Handle clicks outside the navbar menu
+            document.addEventListener("click", function (event) {
+                var target = event.target;
+                var isMobileMenuClicked = mobileMenu.contains(target);
+                var isMobileIconClicked = mobileIcon.contains(target);
+    
+                if (window.matchMedia("(max-width: 767px)").matches && !isMobileMenuClicked && !isMobileIconClicked && mobileMenuVisible) {
+                    toggleMobileMenu();
+                }
+            });
+    
+            // Toggle mobile menu when mobile icon is clicked
+            mobileIcon.addEventListener("click", function () {
+                toggleMobileMenu();
             });
         </script>
     
         <style>
-            /* Hide close button in desktop version */
+            /* Hide navbar in mobile version by default */
+            #navbar {
+                display: none;
+            }
+    
+            /* Add styles for active mobile icon */
+            #bar.active {
+                color: red;
+            }
+    
+            /* Show navbar in desktop version */
             @media screen and (min-width: 768px) {
-                #close-mobile {
-                    display: none;
+                #navbar {
+                    display: flex !important;
                 }
             }
         </style>
     </section>
+    
+    
     
     
     
