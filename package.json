@@ -1,8 +1,8 @@
 {
-  "name": "ecommerce-website-with-payment",
+  "name": "lavender-website",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "start": "nodemon server.js"

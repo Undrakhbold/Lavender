@@ -1,4 +1,4 @@
-// Cart Open Close
+//  Cart
 let cartIcon = document.querySelector("#cart-icon");
 let cart = document.querySelector(".cart");
 let closeCart = document.querySelector("#close-cart");
@@ -21,7 +21,7 @@ if (document.readyState == "loading") {
 
 // Making Function
 function ready() {
-  // Remove Item From Cart
+  // Remove Items From Cart
   var removeCartButtons = document.getElementsByClassName("cart-remove");
   for (var i = 0; i < removeCartButtons.length; i++) {
     var button = removeCartButtons[i];
@@ -40,6 +40,10 @@ function ready() {
     button.addEventListener("click", addCartClicked);
   }
   loadCartItems();
+  // Buy Button Work
+  document
+    .getElementsByClassName("btn-buy")[0]
+    .addEventListener("click", buyButtonClicked);
 }
 
 // Remove Cart Item
@@ -60,7 +64,6 @@ function quantityChanged(event) {
   saveCartItems();
   updateCartIcon();
 }
-
 // Add Cart Function
 function addCartClicked(event) {
   var button = event.target;
@@ -74,6 +77,13 @@ function addCartClicked(event) {
   updateCartIcon();
 }
 
+// Function to add a thousand separator to the price
+function addThousandSeparator(price) {
+  var parts = price.split('.');
+  var integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  var decimalPart = parts[1] ? '.' + parts[1] : '';
+  return integerPart + decimalPart;
+}
 function addProductToCart(title, price, productImg) {
   var cartShopBox = document.createElement("div");
   cartShopBox.classList.add("cart-box");
@@ -112,22 +122,31 @@ function addProductToCart(title, price, productImg) {
   updateCartIcon();
 }
 
+
 // Update Total
 function updatetotal() {
   var cartContent = document.getElementsByClassName("cart-content")[0];
   var cartBoxes = cartContent.getElementsByClassName("cart-box");
   var total = 0;
+
   for (var i = 0; i < cartBoxes.length; i++) {
     var cartBox = cartBoxes[i];
     var priceElement = cartBox.getElementsByClassName("cart-price")[0];
     var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    
+    var price = parseFloat(priceElement.innerText.replace(/₮/g, "").replace(/,/g, ""));
     var quantity = quantityElement.value;
-    total += price * quantity;
+    total = total + price * quantity;
+    priceElement.innerText = addThousandSeparator(priceElement.innerText); // Add thousand separator to individual product prices
   }
-  // If price contain some cents
+
+  // Round the total to two decimal places
   total = Math.round(total * 100) / 100;
-  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
+
+  // Add thousand separator to the total
+  var formattedTotal = addThousandSeparator(total.toString());
+
+  document.getElementsByClassName("total-price")[0].innerText = formattedTotal + "₮";
   // Save Total To LocalStorage
   localStorage.setItem("cartTotal", total);
 }
@@ -173,11 +192,14 @@ function loadCartItems() {
   }
   var cartTotal = localStorage.getItem("cartTotal");
   if (cartTotal) {
+    // Add thousand separator to the total
+    var formattedTotal = addThousandSeparator(cartTotal);
     document.getElementsByClassName("total-price")[0].innerText =
-      "$" + cartTotal;
+      formattedTotal + "₮";
   }
   updateCartIcon();
 }
+
 
 // Quantity In Cart Icon
 function updateCartIcon() {

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavender online shopping</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="img/logo.png" class="logo" alt="" style="width: 30px; height: auto;"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a class="active" href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    
+        <script>
+            var mobileMenuVisible = false;
+            var mobileMenu = document.getElementById("navbar");
+            var mobileIcon = document.getElementById("bar");
+    
+            // Toggle mobile menu visibility
+            function toggleMobileMenu() {
+                if (mobileMenuVisible) {
+                    mobileMenu.style.display = "none";
+                    mobileIcon.classList.remove("active");
+                    mobileMenuVisible = false;
+                } else {
+                    mobileMenu.style.display = "block";
+                    mobileIcon.classList.add("active");
+                    mobileMenuVisible = true;
+                }
+            }
+    
+            // Handle clicks outside the navbar menu
+            document.addEventListener("click", function (event) {
+                var target = event.target;
+                var isMobileMenuClicked = mobileMenu.contains(target);
+                var isMobileIconClicked = mobileIcon.contains(target);
+    
+                if (window.matchMedia("(max-width: 767px)").matches && !isMobileMenuClicked && !isMobileIconClicked && mobileMenuVisible) {
+                    toggleMobileMenu();
+                }
+            });
+    
+            // Toggle mobile menu when mobile icon is clicked
+            mobileIcon.addEventListener("click", function () {
+                toggleMobileMenu();
+            });
+        </script>
+    
+        <style>
+            /* Hide navbar in mobile version by default */
+            #navbar {
+                display: none;
+            }
+    
+            /* Add styles for active mobile icon */
+            #bar.active {
+                color: red;
+            }
+    
+            /* Show navbar in desktop version */
+            @media screen and (min-width: 768px) {
+                #navbar {
+                    display: flex !important;
+                }
+            }
+        </style>
+    </section>
+
+    <section id="page-header" class="blog-header">
+
+        <h2>#readmore</h2>
+
+        <p>Read all case studies about our products! </p>
+
+    </section>
+
+    <section id="blog">
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/b1.jpg" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
+                <p>Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony, godard…</p>
+                <a href="#">CONTINUE READING</a>
+            </div>
+            <h1>13/01</h1>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/b2.jpg" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>How to Style a Quiff</h4>
+                <p>Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony, godard…</p>
+                <a href="#">CONTINUE READING</a>
+            </div>
+            <h1>13/04</h1>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/b3.jpg" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>Must-Have Skater Girl Items</h4>
+                <p>Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony, godard…</p>
+                <a href="#">CONTINUE READING</a>
+            </div>
+            <h1>12/01</h1>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/b4.jpg" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>Runway-Inspired Trends</h4>
+                <p>Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony, godard…</p>
+                <a href="#">CONTINUE READING</a>
+            </div>
+            <h1>16/01</h1>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/b6.jpg" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>AW20 Menswear Trends</h4>
+                <p>Kickstarter man braid godard coloring book. Raclette waistcoat selfies yr wolf chartreuse hexagon irony, godard…</p>
+                <a href="#">CONTINUE READING</a>
+            </div>
+            <h1>10/03</h1>
+        </div>
+    </section>
+
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
+
+    <section id="newsletter" class="section-m1 section-p1">
+        <div class="newstext">
+            <h4>Мэдээлэл авах</h4>
+            <p>Та манай <span>шинэ бараа</span> болон <span>хямдралын</span> мэдээллийг цаг алдалгүй авахыг хүсвэл мэйл хаягаа бүртгүүлнэ үү.</p>
+        </div>
+        <form action="https://formspree.io/f/mlekvpke" method="POST" 
+            <div class="form">
+                <input type="email" name="email" placeholder="Таны мэйл" required>
+                <button class="normal">Бүртгүүлэх</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            
+            <h4>Холбоо барих</h4>
+            <p><strong>Address:</strong> УБ, ХУД, 4-р хороо, Наадамчдын зам гудамж, Төгөлдөр апартмент</p>
+            <p><strong>Phone:</strong> +976 () 80813342</p>
+            <p><strong>Hours:</strong> 09:00 - 23:00, Даваа - Ням</p>
+            <div class="follow">
+            <h4>Follow Us</h4>
+    
+            </div>
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/profile.php?id=100091299083683"><i class="fab fa-facebook-f" style="color: #1a6ed8; font-size: 24px"></i></a></li>
+                <li><a href="https://www.instagram.com/lavenderonline.ub/?next=%2F"><i class="fab fa-instagram"" style="color: #1a6ed8; font-size: 24px"></i></a></li>
+                <li><a href="https://twitter.com/your_username"><i class="fab fa-twitter" style="color: #1a6ed8; font-size: 24px;"></i></a></li>
+                    
+                  
+                </ul>
+    
+              </div>
+        </div>
+    
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+    
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="" style="width: 150px; height: auto;">
+                <img src="img/pay/play.jpg" alt="" style="width: 150px; height: auto;">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="" style="width: 200px; height: auto;">
+        </div>
+        
+        
+    
+        <div class="copyright">
+            <p>© 2023, Конформ ХХК </p>
+        </div>
+    
+    
+        
+    </footer>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "100197399716344");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v16.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

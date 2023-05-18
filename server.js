@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Home Route
 app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: "public" });
+  res.sendFile("shop.html", { root: "public" });
 });
 // Success
 app.get("/success", (req, res) => {
