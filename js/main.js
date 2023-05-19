@@ -44,9 +44,7 @@ function ready() {
 // Buy Button Work
 document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
 }
-function buyButtonClicked(event) {
-  event.preventDefault(); // Prevent the default form submission
-
+function buyButtonClicked() {
   var cartContent = document.getElementsByClassName("cart-content")[0];
   var cartBoxes = cartContent.getElementsByClassName("cart-box");
 
@@ -77,18 +75,13 @@ function buyButtonClicked(event) {
     // Submit the form
     form.submit();
 
-    // Delay the redirect
+    // Redirect to the confirmation page
     var redirectUrl = "confirmation.html"; // Replace with the actual URL of your confirmation page
-    setTimeout(function() {
-      window.location.replace(redirectUrl);
-    }, 10); // Adjust the delay time as needed
+    window.location.href = redirectUrl;
   } else {
     alert("Та утасны дугаараа зөв оруулна уу.");
   }
 }
-
-
-
 
 
 
