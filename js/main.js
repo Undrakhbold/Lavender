@@ -40,11 +40,14 @@ function ready() {
     button.addEventListener("click", addCartClicked);
   }
   loadCartItems();
+
   
 // Buy Button Work
 document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
 }
-function buyButtonClicked() {
+function buyButtonClicked(event) {
+  event.preventDefault(); // Prevent the default form submission
+
   var cartContent = document.getElementsByClassName("cart-content")[0];
   var cartBoxes = cartContent.getElementsByClassName("cart-box");
 
@@ -75,15 +78,15 @@ function buyButtonClicked() {
     // Submit the form
     form.submit();
 
-    // Redirect to the confirmation page
+    // Delay the redirect
     var redirectUrl = "confirmation.html"; // Replace with the actual URL of your confirmation page
-    window.location.href = redirectUrl;
+    setTimeout(function() {
+      window.location.replace(redirectUrl);
+    }, 1000); // Adjust the delay time as needed
   } else {
     alert("Та утасны дугаараа зөв оруулна уу.");
   }
 }
-
-
 
 
 
@@ -134,7 +137,7 @@ function addProductToCart(title, price, productImg) {
   var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
   for (var i = 0; i < cartItemsNames.length; i++) {
     if (cartItemsNames[i].innerText == title) {
-      alert("Та энэ барааг сагсандаа нэмсэн байна");
+      alert("You have already added this item to cart");
       return;
     }
   }
@@ -264,4 +267,3 @@ function clearCart() {
   updatetotal();
   localStorage.removeItem("cartItems");
 }
-
