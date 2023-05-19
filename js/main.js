@@ -40,11 +40,46 @@ function ready() {
     button.addEventListener("click", addCartClicked);
   }
   loadCartItems();
-  // Buy Button Work
-  document
-    .getElementsByClassName("btn-buy")[0]
-    .addEventListener("click", buyButtonClicked);
+  
+// Buy Button Work
+document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
 }
+function buyButtonClicked() {
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  var cartBoxes = cartContent.getElementsByClassName("cart-box");
+
+  var numberInput = document.getElementById("number");
+  var number = numberInput.value.trim();
+
+  if (cartBoxes.length > 0 && number !== "" && number.length === 8 && !isNaN(number)) {
+    var items = [];
+    for (var i = 0; i < cartBoxes.length; i++) {
+      var cartBox = cartBoxes[i];
+      var titleElement = cartBox.getElementsByClassName("cart-product-title")[0];
+      var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+      var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+
+      var item = {
+        title: titleElement.innerText,
+        price: priceElement.innerText,
+        quantity: quantityElement.value
+      };
+      items.push(item);
+    }
+
+    // Fill form with items' details
+    var form = document.querySelector("form");
+    form.number.value = number;
+    form.items.value = JSON.stringify(items);
+    form.submit();
+  } else {
+    alert("Та утасны дугаараа зөв оруулна уу.");
+  }
+}
+
+
+
+
 
 // Remove Cart Item
 function removeCartItem(event) {
