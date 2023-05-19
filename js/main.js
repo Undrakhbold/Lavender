@@ -81,7 +81,7 @@ function buyButtonClicked(event) {
     var redirectUrl = "confirmation.html"; // Replace with the actual URL of your confirmation page
     setTimeout(function() {
       window.location.replace(redirectUrl);
-    }, 1000); // Adjust the delay time as needed
+    }, 10); // Adjust the delay time as needed
   } else {
     alert("Та утасны дугаараа зөв оруулна уу.");
   }
