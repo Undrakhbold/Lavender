@@ -51,7 +51,7 @@ function buyButtonClicked() {
   var numberInput = document.getElementById("number");
   var number = numberInput.value.trim();
 
-  if (cartBoxes.length > 0 && number !== "" && number.length === 8 && !isNaN(number)) {
+  if (cartBoxes.length > 0 && number !== "") {
     var items = [];
     for (var i = 0; i < cartBoxes.length; i++) {
       var cartBox = cartBoxes[i];
@@ -71,11 +71,18 @@ function buyButtonClicked() {
     var form = document.querySelector("form");
     form.number.value = number;
     form.items.value = JSON.stringify(items);
+
+    // Submit the form
     form.submit();
+
+    // Redirect to the confirmation page
+    var redirectUrl = "confirmation.html"; // Replace with the actual URL of your confirmation page
+    window.location.href = redirectUrl;
   } else {
     alert("Та утасны дугаараа зөв оруулна уу.");
   }
 }
+
 
 
 
@@ -256,3 +263,4 @@ function clearCart() {
   updatetotal();
   localStorage.removeItem("cartItems");
 }
+
