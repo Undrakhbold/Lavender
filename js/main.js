@@ -139,7 +139,7 @@ function addProductToCart(title, price, productImg) {
   var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
   for (var i = 0; i < cartItemsNames.length; i++) {
     if (cartItemsNames[i].innerText == title) {
-      alert("You have already added this item to cart");
+      alert("Тус бараа таны сагсанд нэмэгдсэн байна. Үндсэн цэсний доор байрлах сагсан дээр дарна уу");
       return;
     }
   }
