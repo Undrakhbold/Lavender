@@ -270,4 +270,14 @@ function clearCart() {
   localStorage.removeItem("cartItems");
 }
 
+// Get all product boxes with a slideshow
+const productBoxes = document.querySelectorAll('.product-box .slideshow');
+
+productBoxes.forEach((box) => {
+  // Add click event listener to each product box
+  box.addEventListener('click', () => {
+    // Toggle the 'active' class to start or stop the slideshow
+    box.classList.toggle('active');
+  });
+});
 
