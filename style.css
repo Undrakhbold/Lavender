@@ -945,10 +945,7 @@ footer a:hover {
   display: grid;
   row-gap: 0.5rem;
 }
-.cart-product-title {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
+
 .cart-price {
   font-weight: 500;
 }
@@ -1059,12 +1056,7 @@ footer a:hover {
   height: auto;
   margin-bottom: 0.5rem;
 }
-.product-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
+
 .price {
   font-weight: 500;
 }
